@@ -1,7 +1,7 @@
-﻿(function () {
+(function () {
     'use strict';
 
-    angular.module('app', [
+        var corePower = angular.module('corePower', [
         // Angular modules 
         'ngRoute'
 

@@ -16,6 +16,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="wwwroot\components\App_Scripts\corePowerApp.js" />
+    <None Include="wwwroot\components\App_Scripts\Controllers\DashboardController.js" />
     <None Include="wwwroot\lib\angular\app.js" />
     <None Include="wwwroot\lib\angular\Controllers\DashboardController.js" />
   </ItemGroup>
