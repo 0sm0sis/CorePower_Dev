@@ -43,7 +43,7 @@ gulp.task("min:js", function () {
         .pipe(uglify())
         .pipe(gulp.dest(paths.concatJsDest));
 });
-
+// ew
 gulp.task('js:watch', function () {
     gulp.watch(paths.js, ['min:js']);
 });
