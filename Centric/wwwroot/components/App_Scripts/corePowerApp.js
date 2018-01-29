@@ -1,2 +1,2 @@
 ﻿
-        var corePower = angular.module('corePower',[]);
+var corePower = angular.module('corePower', []);

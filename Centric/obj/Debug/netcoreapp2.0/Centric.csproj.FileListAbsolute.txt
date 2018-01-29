@@ -36,7 +36,6 @@ C:\Users\joshc\Source\Repos\CorePowerReview\Centric\bin\Debug\netcoreapp2.0\Cent
 C:\Users\joshc\Source\Repos\CorePowerReview\Centric\bin\Debug\netcoreapp2.0\Centric.runtimeconfig.dev.json
 C:\Users\joshc\Source\Repos\CorePowerReview\Centric\bin\Debug\netcoreapp2.0\Centric.dll
 C:\Users\joshc\Source\Repos\CorePowerReview\Centric\bin\Debug\netcoreapp2.0\Centric.pdb
-C:\Users\joshc\Source\Repos\CorePowerReview\Centric\obj\Debug\netcoreapp2.0\Centric.csprojResolveAssemblyReference.cache
 C:\Users\joshc\Source\Repos\CorePowerReview\Centric\obj\Debug\netcoreapp2.0\Centric.csproj.CoreCompileInputs.cache
 C:\Users\joshc\Source\Repos\CorePowerReview\Centric\obj\Debug\netcoreapp2.0\Centric.AssemblyInfoInputs.cache
 C:\Users\joshc\Source\Repos\CorePowerReview\Centric\obj\Debug\netcoreapp2.0\Centric.AssemblyInfo.cs

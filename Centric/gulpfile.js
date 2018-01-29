@@ -40,7 +40,7 @@ gulp.task("clean", ["clean:js", "clean:css"]);
 gulp.task("min:js", function () {
     return gulp.src(paths.js)
         .pipe(concat('app.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest(paths.concatJsDest));
 });
 // ew
