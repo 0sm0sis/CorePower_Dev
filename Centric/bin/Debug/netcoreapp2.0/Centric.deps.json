@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "a7aa306d2e264d92ffef06296341a5e29b6e41eb"
+    "signature": "c44e036d3e388973b09f32a51036ea157012e667"
   },
   "compilationOptions": {
     "defines": [
@@ -26,7 +26,8 @@
           "Microsoft.AspNetCore.All": "2.0.0",
           "Microsoft.AspNetCore.Mvc": "2.0.0",
           "Microsoft.AspNetCore.StaticFiles": "2.0.0",
-          "Microsoft.NETCore.App": "2.0.0"
+          "Microsoft.NETCore.App": "2.0.0",
+          "Node.js.redist": "8.9.1"
         },
         "runtime": {
           "Centric.dll": {}
@@ -2367,6 +2368,7 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "Node.js.redist/8.9.1": {},
       "Remotion.Linq/2.1.1": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -5127,6 +5129,13 @@
       "sha512": "sha512-5PYT/IqQ+UK31AmZiSS102R6EsTo+LGTSI8bp7WAUqDKaF4wHXD8U9u4WxTI1vc64tYi++8p3dk3WWNqPFgldw==",
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
+    },
+    "Node.js.redist/8.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ObyxEdcxVDcCrk9gckF4dLOK5cM/ODjYV5TwQHww0EkTXi+V18IrwBrOKQLXzwhRAsAX0AKQt5eBio4JniHZSA==",
+      "path": "node.js.redist/8.9.1",
+      "hashPath": "node.js.redist.8.9.1.nupkg.sha512"
     },
     "Remotion.Linq/2.1.1": {
       "type": "package",

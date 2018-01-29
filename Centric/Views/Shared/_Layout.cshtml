@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="corePower">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -157,6 +157,8 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBNs42Rt_CyxAqdbIBK0a5Ut83QiauESPA"></script>
 
     <environment names="Development">
+        <!-- Angular-->
+        <script src="~/lib/angular/angular.js"></script>
         <!-- Modernizr-->
         <script src="~/lib/modernizr/modernizr.custom.js"></script>
         <!-- jQuery-->
@@ -251,6 +253,8 @@
         <script src="~/js/app.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
+        <!-- Angular-->
+        <script src="~/lib/angular/angular.js"></script>
         <!-- Modernizr-->
         <script src="~/lib/modernizr/modernizr.custom.js"></script>
         <!-- jQuery-->
