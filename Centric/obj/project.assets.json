@@ -12563,11 +12563,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\joshc\\Source\\Repos\\CorePowerReview\\Centric\\Centric.csproj",
+      "projectUniqueName": "C:\\Users\\joshc\\Source\\Repos\\CorePower_Dev\\Centric\\Centric.csproj",
       "projectName": "Centric",
-      "projectPath": "C:\\Users\\joshc\\Source\\Repos\\CorePowerReview\\Centric\\Centric.csproj",
+      "projectPath": "C:\\Users\\joshc\\Source\\Repos\\CorePower_Dev\\Centric\\Centric.csproj",
       "packagesPath": "C:\\Users\\joshc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joshc\\Source\\Repos\\CorePowerReview\\Centric\\obj\\",
+      "outputPath": "C:\\Users\\joshc\\Source\\Repos\\CorePower_Dev\\Centric\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",

@@ -30,48 +30,6 @@
 
 var corePower = angular.module('corePower', []);
 
-
-(function(global) {
-    'use strict';
-
-    global.APP_COLORS = {
-        'gray-darker':            '#263238',
-        'gray-dark':              '#455A64',
-        'gray':                   '#607D8B',
-        'gray-light':             '#90A4AE',
-        'gray-lighter':           '#ECEFF1',
-
-        'primary':                '#448AFF',
-        'success':                '#4CAF50',
-        'info':                   '#03A9F4',
-        'warning':                '#FFB300',
-        'danger':                 '#F44336'
-    };
-
-})(window);
-
-(function(global) {
-    'use strict';
-
-    global.Colors = new ColorsHandler();
-
-    function ColorsHandler() {
-        this.byName = byName;
-
-        ////////////////
-
-        function byName(name) {
-            var color = APP_COLORS[name];
-            if (!color && (typeof materialColors !== 'undefined')) {
-                var c = name.split('-'); // red-500, blue-a100, deepPurple-500, etc
-                if (c.length)
-                    color = (materialColors[c[0]] || {})[c[1]];
-            }
-            return (color || '#fff');
-        }
-    }
-
-})(window);
 (function() {
     'use strict';
 
@@ -745,6 +703,48 @@ var corePower = angular.module('corePower', []);
     }
 
 })();
+
+(function(global) {
+    'use strict';
+
+    global.APP_COLORS = {
+        'gray-darker':            '#263238',
+        'gray-dark':              '#455A64',
+        'gray':                   '#607D8B',
+        'gray-light':             '#90A4AE',
+        'gray-lighter':           '#ECEFF1',
+
+        'primary':                '#448AFF',
+        'success':                '#4CAF50',
+        'info':                   '#03A9F4',
+        'warning':                '#FFB300',
+        'danger':                 '#F44336'
+    };
+
+})(window);
+
+(function(global) {
+    'use strict';
+
+    global.Colors = new ColorsHandler();
+
+    function ColorsHandler() {
+        this.byName = byName;
+
+        ////////////////
+
+        function byName(name) {
+            var color = APP_COLORS[name];
+            if (!color && (typeof materialColors !== 'undefined')) {
+                var c = name.split('-'); // red-500, blue-a100, deepPurple-500, etc
+                if (c.length)
+                    color = (materialColors[c[0]] || {})[c[1]];
+            }
+            return (color || '#fff');
+        }
+    }
+
+})(window);
 (function() {
     'use strict';
 
@@ -3083,7 +3083,6 @@ var corePower = angular.module('corePower', []);
     }
 
 })();
-corePower.controller("dashboardController", [function ($scope) {
+corePower.controller("dashboardController", ['$scope',function ($scope) {
     $scope.demoText = "Here's some text!";
-    
 }]);
