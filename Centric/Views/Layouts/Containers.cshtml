@@ -1,10 +1,160 @@
 @{
-    ViewData["Title"] = "Layout Containers";
+    ViewData["Title"] = "Core Power Planner";
 }
 
 
+
 <div class="text-center">
-    <h2> PLACEHOLDER FOR LOPA PAGE </h2>
-    <a class="btn-lg btn-primary" href="@Url.Action("Classic", "Forms")">Save My Lopa</a>
-    <a class="btn-lg btn-info" href="@Url.Action("Classic", "Forms")">Load Lopa</a>
+    <div class="row row-list" style="margin:10px;">
+        <div class="col-xs-2 text-center" style="background-color:lightblue; padding:20px;height:700px;">
+
+
+            <b>Aircraft Type</b>
+            <select class="form-control" id="sel1" onchange="updateFunctionBlock()">
+                <option value="" disabled selected>Choose a Plane</option>
+                <option value="fixed wing">Fixed Wing</option>
+                <option value="rotocraft">Rotocraft</option>
+                <option value="UAV">UAV</option>
+            </select>
+            <br />
+            <b>System Requirments</b>
+            <select class="form-control" id="sel2">
+                <option value="" disabled selected>Choose System Requirements</option>
+                <option>Generation</option>
+                <option>Distribution</option>
+                <option>In Seat Power</option>
+                <option>Other</option>
+            </select>
+            <br />
+            <b>Special Purpose</b>
+            <select class="form-control" id="sel3">
+                <option value="" disabled selected>Special Purpose</option>
+                <option>Special Mission Systems</option>
+                <option>VVIP/Cabin Power</option>
+                <option>IVHM/CBM</option>
+                <option>Hybrid-Electric Propulsion</option>
+                <option>All-electric Propulsion</option>
+                <option>Untilty Managment</option>
+                <option>Active Load Shedding</option>
+                <option>Energy Recovery</option>
+                <option>Battery Managment</option>
+
+            </select>
+            <br />
+            <br />
+            <a class="btn-lg btn-primary" href="@Url.Action("Classic", "Forms")">Save My Plane</a>
+            <br />
+            <br />
+            <a class="btn-lg btn-info" href="@Url.Action("Classic", "Forms")">Load Plane</a>
+
+
+        </div>
+        <div id="middle" class="col-xs-8 h-100" style="border:medium; border-color:red;height: 700px;">
+            <img id="image" style="display: block; margin: 0 auto;">
+        </div>
+        <div class="col-xs-2" style="background-color:lightblue;padding:20px;height:700px;">
+
+            <div id="fixedWingOptions" style="display:none;">
+                <b>Aircraft Type</b>
+                <select class="form-control" id="sel4">
+                    <option value="" disabled selected>Aircraft Type</option>
+                    <option>GA</option>
+                    <option>Turbo Prop</option>
+                    <option>VLJ</option>
+                    <option>Light Bus Jet</option>
+                    <option>Medium Business Jet</option>
+                    <option>Regional Transpot</option>
+                    <option>Commerical Transport</option>
+
+                </select>
+                <br />
+                <b>System Requirements</b>
+                <select class="form-control" id="sel5">
+                    <option value="" disabled selected>Power</option>
+
+                    <option>AC</option>
+                    <option>DC</option>
+                </select>
+            </div>
+
+            <div id="rotocraftOptions" style="display:none;">
+                <b>Aircraft Type</b>
+                <select class="form-control" id="sel4">
+                    <option value="" disabled selected>Aircraft Type</option>
+                    <option>Part 27 Single</option>
+                    <option>Part 27 Light Twin</option>
+                    <option>Part 29 Meduim</option>
+                    <option>Part 29 Medium Heavy</option>
+                    <option>Part 29 Heavy</option>
+                </select>
+                <br />
+                <b>System Requirements</b>
+                <select class="form-control" id="sel5">
+                    <option value="" disabled selected>Power</option>
+
+                    <option>AC</option>
+                    <option>DC</option>
+                </select>
+            </div>
+
+
+            <div id="UAVOptions" style="display:none;">
+                <b>Aircraft Type</b>
+                <select class="form-control" id="sel4">
+                    <option value="" disabled selected>Aircraft Type</option>
+                    <option>Multi-rotor Hybird electric</option>
+                    <option>All Electric Mulit Rotor</option>
+                    <option>eVtol to Fixed Wing</option>
+
+                </select>
+                <br />
+                <b>System Requirements</b>
+                <select class="form-control" id="sel5">
+                    <option value="" disabled selected>Power</option>
+
+                    <option>AC</option>
+                    <option>DC</option>
+                </select>
+            </div>
+
+        </div>
+    </div>
 </div>
+
+<script>
+    console.log("this in not a test or an sos");
+
+    function updateFunctionBlock() {
+        var val = document.getElementById("sel1").value;
+
+        if (val == "fixed wing"){
+            console.log("fixed wing");
+            document.getElementById("image").src = "../images/fixedwing.PNG";
+            document.getElementById("fixedWingOptions").style.display = "block";
+            document.getElementById("UAVOptions").style.display = "none";
+            document.getElementById("rotocraftOptions").style.display = "none";
+
+        }
+
+        else if( val == "rotocraft"){
+            console.log("rotocraft");
+            document.getElementById("image").src = "../images/rotocraft.PNG";
+            document.getElementById("fixedWingOptions").style.display = "none";
+            document.getElementById("UAVOptions").style.display = "none";
+            document.getElementById("rotocraftOptions").style.display = "block";
+
+        }
+
+        else{
+            //UAV
+            console.log("UAV");
+            document.getElementById("image").src = "../images/UAV.PNG";
+            document.getElementById("fixedWingOptions").style.display = "none";
+            document.getElementById("UAVOptions").style.display = "block";
+            document.getElementById("rotocraftOptions").style.display = "none";
+
+        }
+
+
+    }
+</script>
