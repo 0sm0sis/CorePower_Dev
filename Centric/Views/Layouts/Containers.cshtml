@@ -8,45 +8,47 @@
     <div class="row row-list" style="margin:10px;">
         <div class="col-xs-2 text-center" style="background-color:lightblue; padding:20px;height:700px;">
 
+            <div class="form-group has-float-label">
+                    <select class="form-control"id="sel1" onchange="updateFunctionBlock()">
+                        <option value="" disabled selected>Choose a Plane</option>
+                        <option value="fixed wing">Fixed Wing</option>
+                        <option value="rotocraft">Rotocraft</option>
+                        <option value="UAV">UAV</option>
+                    </select>
+                    <label>Aircraft Type</label>
+            </div>
+            <div class="has-float-label">
+               <select class="form-control" id="sel2">
+                    <option value="" disabled selected>Choose System Requirements</option>
+                    <option>Generation</option>
+                    <option>Distribution</option>
+                    <option>In Seat Power</option>
+                    <option>Other</option>
+                </select>
+                <label>System Requirments</label>
+            </div>
+            <br />
+            <div class="has-float-label">
+    <select class="form-control" id="sel3">
+        <option value="" disabled selected>Special Purpose</option>
+        <option>Special Mission Systems</option>
+        <option>VVIP/Cabin Power</option>
+        <option>IVHM/CBM</option>
+        <option>Hybrid-Electric Propulsion</option>
+        <option>All-electric Propulsion</option>
+        <option>Untilty Managment</option>
+        <option>Active Load Shedding</option>
+        <option>Energy Recovery</option>
+        <option>Battery Managment</option>
+    </select>
+    <label>Special Purpose</label>
+</div>
 
-            <b>Aircraft Type</b>
-            <select class="form-control" id="sel1" onchange="updateFunctionBlock()">
-                <option value="" disabled selected>Choose a Plane</option>
-                <option value="fixed wing">Fixed Wing</option>
-                <option value="rotocraft">Rotocraft</option>
-                <option value="UAV">UAV</option>
-            </select>
-            <br />
-            <b>System Requirments</b>
-            <select class="form-control" id="sel2">
-                <option value="" disabled selected>Choose System Requirements</option>
-                <option>Generation</option>
-                <option>Distribution</option>
-                <option>In Seat Power</option>
-                <option>Other</option>
-            </select>
-            <br />
-            <b>Special Purpose</b>
-            <select class="form-control" id="sel3">
-                <option value="" disabled selected>Special Purpose</option>
-                <option>Special Mission Systems</option>
-                <option>VVIP/Cabin Power</option>
-                <option>IVHM/CBM</option>
-                <option>Hybrid-Electric Propulsion</option>
-                <option>All-electric Propulsion</option>
-                <option>Untilty Managment</option>
-                <option>Active Load Shedding</option>
-                <option>Energy Recovery</option>
-                <option>Battery Managment</option>
+            <div style="padding-top:15px; width:100%" class="btn-group-vertical" >
+                <button class="btn btn-primary" href="@Url.Action("Classic", "Forms")">Save My Plane</button>
 
-            </select>
-            <br />
-            <br />
-            <a class="btn-lg btn-primary" href="@Url.Action("Classic", "Forms")">Save My Plane</a>
-            <br />
-            <br />
-            <a class="btn-lg btn-info" href="@Url.Action("Classic", "Forms")">Load Plane</a>
-
+                <button style="margin-top:15px" class="btn btn-primary" href="@Url.Action("Classic", "Forms")">Load Plane</button>
+            </div>
 
         </div>
         <div id="middle" class="col-xs-8 h-100" style="border:medium; border-color:red;height: 700px;">
@@ -68,53 +70,65 @@
 
                 </select>
                 <br />
-                <b>System Requirements</b>
-                <select class="form-control" id="sel5">
-                    <option value="" disabled selected>Power</option>
+                
+                <div class="has-float-label">
+                    <select class="form-control" id="sel5">
+                        <option value="" disabled selected>Power</option>
 
-                    <option>AC</option>
-                    <option>DC</option>
-                </select>
+                        <option>AC</option>
+                        <option>DC</option>
+                    </select>
+                    <label>System Requirements</label>
+                </div>
             </div>
 
             <div id="rotocraftOptions" style="display:none;">
-                <b>Aircraft Type</b>
-                <select class="form-control" id="sel4">
-                    <option value="" disabled selected>Aircraft Type</option>
-                    <option>Part 27 Single</option>
-                    <option>Part 27 Light Twin</option>
-                    <option>Part 29 Meduim</option>
-                    <option>Part 29 Medium Heavy</option>
-                    <option>Part 29 Heavy</option>
-                </select>
+                
+                <div class="has-float-label">
+                    <select class="form-control" id="sel4">
+                        <option value="" disabled selected>Aircraft Type</option>
+                        <option>Part 27 Single</option>
+                        <option>Part 27 Light Twin</option>
+                        <option>Part 29 Meduim</option>
+                        <option>Part 29 Medium Heavy</option>
+                        <option>Part 29 Heavy</option>
+                    </select>
+                <label>Aircraft Type</label>
+                </div>
                 <br />
-                <b>System Requirements</b>
-                <select class="form-control" id="sel5">
-                    <option value="" disabled selected>Power</option>
+                <div class="has-float-label">
+                    <select class="form-control" id="sel5">
+                        <option value="" disabled selected>Power</option>
 
-                    <option>AC</option>
-                    <option>DC</option>
-                </select>
+                        <option>AC</option>
+                        <option>DC</option>
+                    </select>
+                <label>System Requirements</label>
+                </div>
             </div>
 
 
             <div id="UAVOptions" style="display:none;">
-                <b>Aircraft Type</b>
-                <select class="form-control" id="sel4">
-                    <option value="" disabled selected>Aircraft Type</option>
-                    <option>Multi-rotor Hybird electric</option>
-                    <option>All Electric Mulit Rotor</option>
-                    <option>eVtol to Fixed Wing</option>
-
-                </select>
+                
+                <div class="has-float-label">
+                    <select class="form-control" id="sel4">
+                        <option value="" disabled selected>Aircraft Type</option>
+                        <option>Multi-rotor Hybird electric</option>
+                        <option>All Electric Mulit Rotor</option>
+                        <option>eVtol to Fixed Wing</option>
+                    </select>
+                    <label>Aircraft Type</label>
+                </div>
                 <br />
-                <b>System Requirements</b>
-                <select class="form-control" id="sel5">
-                    <option value="" disabled selected>Power</option>
-
-                    <option>AC</option>
-                    <option>DC</option>
-                </select>
+                <b></b>
+                <div class="has-float-label">
+                    <select class="form-control" id="sel5">
+                        <option value="" disabled selected>Power</option>
+                        <option>AC</option>
+                        <option>DC</option>
+                    </select>
+                    <label>System Requirements</label>
+                </div>
             </div>
 
         </div>
