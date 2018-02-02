@@ -17,7 +17,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\components\App_Scripts\corePowerApp.js" />
-    <None Include="wwwroot\components\App_Scripts\Controllers\DashboardController.js" />
+    <None Include="wwwroot\components\App_Scripts\Controllers\AdminController.js" />
     <None Include="wwwroot\lib\angular\app.js" />
     <None Include="wwwroot\lib\angular\Controllers\DashboardController.js" />
   </ItemGroup>
