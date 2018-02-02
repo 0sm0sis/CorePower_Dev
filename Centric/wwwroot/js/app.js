@@ -3093,15 +3093,14 @@ corePower.controller("containersController", ['$scope', function ($scope) {
     // blank objects should be declared using {}
     $scope.craftObject = {
         name: '',
-        attribute1: '',
-        genericSubobject: {}
+        imgSrc:''
     }
 
 
 
     // Just hard coding with an array of strings for demo purposes
     // This will likely be an array of objects once the database is running
-    $scope.craftObjectList = ["Fixed Wing", "Rotocraft", "UAV"];
+    $scope.craftObjectList = [{ name: "Fixed Wing", imgSrc: "../images/fixedwing.PNG" }, { name: "Rotocraft", imgSrc: "../images / rotocraft.PNG" }, { name: "UAV", imgSrc: "../images/UAV.PNG"}];
     $scope.systemRequirementsList = ["Generation", "Distribution", "In Seat Power", "Other"];
     $scope.missionSystemList = ["Special Mission Systems", "VVIP/Cabin Power", "IVHM/CBM", "Hybrid-Electric Propulsion", "All-electric Propulsion", "Untilty Managment", "Active Load Shedding", "Energy Recovery", "Battery Managment",];
     $scope.fixedWingSubtypeList = ["GA", "Turbo Prop", "VLJ", "Light Bus Jet", "Medium Business Jet", "Regional Transpot", "Commerical Transport"];
@@ -3117,13 +3116,13 @@ corePower.controller("containersController", ['$scope', function ($scope) {
     // populate picklists in html
     $scope.craftSubtypeList = [];
     $scope.selectCraftSubtypeList = function () {
-        if ($scope.selectedCraftType == "Fixed Wing") {
+        if ($scope.selectedCraftType.name == "Fixed Wing") {
             $scope.craftSubtypeList = $scope.fixedWingSubtypeList;
         }
-        else if ($scope.selectedCraftType == "Rotocraft") {
+        else if ($scope.selectedCraftType.name == "Rotocraft") {
             $scope.craftSubtypeList = $scope.rotocraftSubtypeList;
         }
-        else if ($scope.selectedCraftType == "UAV") {
+        else if ($scope.selectedCraftType.name == "UAV") {
             $scope.craftSubtypeList = $scope.uavSubtypeList;
         }
 
