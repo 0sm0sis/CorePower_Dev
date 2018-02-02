@@ -3,22 +3,32 @@
 }
 
 
-
-<div class="text-center">
+@* ng-controllers links to the file in wwwroot < components < App_Scripts < Controllers < ContainersController.js   *@
+<div ng-controller="containersController" class="text-center">
     <div class="row row-list" style="margin:10px;">
         <div class="col-xs-2 text-center" style="background-color:lightblue; padding:20px;height:700px;">
 
             <div class="form-group has-float-label">
-                    <select class="form-control"id="sel1" onchange="updateFunctionBlock()">
-                        <option value="" disabled selected>Choose a Plane</option>
+                @* ng-model binds links this to the corresponding $scope property *@
+                @* The ng-options may look weird since it normally is dealing with objects
+                    it looks clear when type as type.name for type in list which will track all object data
+                    so that it can be passed along, but only displays type.name in the picklist
+                *@
+                <select class="form-control" ng-model="selectedCraftType" ng-options="type as type for type in craftObjectList" ng-change="selectCraftSubtypeList()" id="sel1" ">
+                    @*<option value="" disabled selected>Choose a Plane</option>
                         <option value="fixed wing">Fixed Wing</option>
                         <option value="rotocraft">Rotocraft</option>
-                        <option value="UAV">UAV</option>
-                    </select>
-                    <label>Aircraft Type</label>
+                        <option value="UAV">UAV</option>*@
+                </select>
+                <div class="col-lg-12">
+                    <p>
+                        {{craftSubtypeList}}
+                    </p>
+                </div>
+                <label>Aircraft Type</label>
             </div>
-            <div class="has-float-label">
-               <select class="form-control" id="sel2">
+            @*<div class="has-float-label">
+                <select class="form-control" id="sel2">
                     <option value="" disabled selected>Choose System Requirements</option>
                     <option>Generation</option>
                     <option>Distribution</option>
@@ -29,22 +39,22 @@
             </div>
             <br />
             <div class="has-float-label">
-    <select class="form-control" id="sel3">
-        <option value="" disabled selected>Special Purpose</option>
-        <option>Special Mission Systems</option>
-        <option>VVIP/Cabin Power</option>
-        <option>IVHM/CBM</option>
-        <option>Hybrid-Electric Propulsion</option>
-        <option>All-electric Propulsion</option>
-        <option>Untilty Managment</option>
-        <option>Active Load Shedding</option>
-        <option>Energy Recovery</option>
-        <option>Battery Managment</option>
-    </select>
-    <label>Special Purpose</label>
-</div>
+                <select class="form-control" id="sel3">
+                    <option value="" disabled selected>Special Purpose</option>
+                    <option>Special Mission Systems</option>
+                    <option>VVIP/Cabin Power</option>
+                    <option>IVHM/CBM</option>
+                    <option>Hybrid-Electric Propulsion</option>
+                    <option>All-electric Propulsion</option>
+                    <option>Untilty Managment</option>
+                    <option>Active Load Shedding</option>
+                    <option>Energy Recovery</option>
+                    <option>Battery Managment</option>
+                </select>
+                <label>Special Purpose</label>
+            </div>*@
 
-            <div style="padding-top:15px; width:100%" class="btn-group-vertical" >
+            <div style="padding-top:15px; width:100%" class="btn-group-vertical">
                 <button class="btn btn-primary" href="@Url.Action("Classic", "Forms")">Save My Plane</button>
 
                 <button style="margin-top:15px" class="btn btn-primary" href="@Url.Action("Classic", "Forms")">Load Plane</button>
@@ -70,7 +80,7 @@
 
                 </select>
                 <br />
-                
+
                 <div class="has-float-label">
                     <select class="form-control" id="sel5">
                         <option value="" disabled selected>Power</option>
@@ -83,7 +93,7 @@
             </div>
 
             <div id="rotocraftOptions" style="display:none;">
-                
+
                 <div class="has-float-label">
                     <select class="form-control" id="sel4">
                         <option value="" disabled selected>Aircraft Type</option>
@@ -93,7 +103,7 @@
                         <option>Part 29 Medium Heavy</option>
                         <option>Part 29 Heavy</option>
                     </select>
-                <label>Aircraft Type</label>
+                    <label>Aircraft Type</label>
                 </div>
                 <br />
                 <div class="has-float-label">
@@ -103,13 +113,13 @@
                         <option>AC</option>
                         <option>DC</option>
                     </select>
-                <label>System Requirements</label>
+                    <label>System Requirements</label>
                 </div>
             </div>
 
 
             <div id="UAVOptions" style="display:none;">
-                
+
                 <div class="has-float-label">
                     <select class="form-control" id="sel4">
                         <option value="" disabled selected>Aircraft Type</option>
@@ -135,40 +145,40 @@
     </div>
 </div>
 
-<script>
-    console.log("this in not a test or an sos");
+@*<script>
+        console.log("this in not a test or an sos");
 
-    function updateFunctionBlock() {
-        var val = document.getElementById("sel1").value;
+        function updateFunctionBlock() {
+            var val = document.getElementById("sel1").value;
 
-        if (val == "fixed wing"){
-            console.log("fixed wing");
-            document.getElementById("image").src = "../images/fixedwing.PNG";
-            document.getElementById("fixedWingOptions").style.display = "block";
-            document.getElementById("UAVOptions").style.display = "none";
-            document.getElementById("rotocraftOptions").style.display = "none";
+            if (val == "fixed wing"){
+                console.log("fixed wing");
+                document.getElementById("image").src = "../images/fixedwing.PNG";
+                document.getElementById("fixedWingOptions").style.display = "block";
+                document.getElementById("UAVOptions").style.display = "none";
+                document.getElementById("rotocraftOptions").style.display = "none";
+
+            }
+
+            else if( val == "rotocraft"){
+                console.log("rotocraft");
+                document.getElementById("image").src = "../images/rotocraft.PNG";
+                document.getElementById("fixedWingOptions").style.display = "none";
+                document.getElementById("UAVOptions").style.display = "none";
+                document.getElementById("rotocraftOptions").style.display = "block";
+
+            }
+
+            else{
+                //UAV
+                console.log("UAV");
+                document.getElementById("image").src = "../images/UAV.PNG";
+                document.getElementById("fixedWingOptions").style.display = "none";
+                document.getElementById("UAVOptions").style.display = "block";
+                document.getElementById("rotocraftOptions").style.display = "none";
+
+            }
+
 
         }
-
-        else if( val == "rotocraft"){
-            console.log("rotocraft");
-            document.getElementById("image").src = "../images/rotocraft.PNG";
-            document.getElementById("fixedWingOptions").style.display = "none";
-            document.getElementById("UAVOptions").style.display = "none";
-            document.getElementById("rotocraftOptions").style.display = "block";
-
-        }
-
-        else{
-            //UAV
-            console.log("UAV");
-            document.getElementById("image").src = "../images/UAV.PNG";
-            document.getElementById("fixedWingOptions").style.display = "none";
-            document.getElementById("UAVOptions").style.display = "block";
-            document.getElementById("rotocraftOptions").style.display = "none";
-
-        }
-
-
-    }
-</script>
+    </script>*@
