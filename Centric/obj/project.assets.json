@@ -2,6 +2,9 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
+      "angular-file-upload/12.2.13": {
+        "type": "package"
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -4753,6 +4756,27 @@
     }
   },
   "libraries": {
+    "angular-file-upload/12.2.13": {
+      "sha512": "vPfJNUcuIpneDsYK+q+NuKYiuK4vyz57Lx1H+MRZwVmkKJ9Se/m1FPEqod823VrZfrVTAv8dcyUSLA7kKDlwXg==",
+      "type": "package",
+      "path": "angular-file-upload/12.2.13",
+      "files": [
+        "NuGet.exe",
+        "angular-file-upload.12.2.13.nupkg.sha512",
+        "angular-file-upload.nuspec",
+        "build.bat",
+        "content/scripts/FileAPI.flash.swf",
+        "content/scripts/FileAPI.js",
+        "content/scripts/FileAPI.min.js",
+        "content/scripts/ng-file-upload-all.js",
+        "content/scripts/ng-file-upload-all.min.js",
+        "content/scripts/ng-file-upload-shim.js",
+        "content/scripts/ng-file-upload-shim.min.js",
+        "content/scripts/ng-file-upload.js",
+        "content/scripts/ng-file-upload.min.js",
+        "nuget.sh"
+      ]
+    },
     "Libuv/1.10.0": {
       "sha512": "GsCf4q+eyaI49rCPlgYxdxa1SQCysXFFdSJWdstrwxytg4+VPYLYrXD4AT2rjHVJ+UF7SSWX9CapWEYaU4ejVQ==",
       "type": "package",
@@ -12549,7 +12573,8 @@
       "Microsoft.AspNetCore.Mvc >= 2.0.0",
       "Microsoft.AspNetCore.StaticFiles >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
-      "Node.js.redist >= 8.9.1"
+      "Node.js.redist >= 8.9.1",
+      "angular-file-upload >= 12.2.13"
     ]
   },
   "packageFolders": {
@@ -12619,6 +12644,10 @@
           "Node.js.redist": {
             "target": "Package",
             "version": "[8.9.1, )"
+          },
+          "angular-file-upload": {
+            "target": "Package",
+            "version": "[12.2.13, )"
           }
         },
         "imports": [
