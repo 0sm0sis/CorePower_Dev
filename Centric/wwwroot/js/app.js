@@ -28,7 +28,7 @@
 })();
 
 
-var corePower = angular.module('corePower', []);
+var corePower = angular.module('corePower', ['ngFileUpload']);
 
 (function() {
     'use strict';
@@ -3083,7 +3083,7 @@ var corePower = angular.module('corePower', []);
     }
 
 })();
-corePower.controller("containersController", ['$scope', function ($scope) {
+corePower.controller('containersController', ['$scope', function ($scope) {
     // $scope is probably the single most important variable
     // any object or function attached to $scope can be surfaced
     // directly in the html
@@ -3134,8 +3134,8 @@ corePower.controller("dashboardController", ['$scope',function ($scope) {
     $scope.demoText = "Here's some text!";
 }]);
 
-corePower.controller("newComponentController", ['$scope', '$http', 'uploadService', function ($scope, $http, uploadService) {
-    
+corePower.controller('newComponentController', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
+
     $scope.newPart = {
         ID: 0,
         partNum: 1448,
@@ -3251,89 +3251,25 @@ corePower.controller("newComponentController", ['$scope', '$http', 'uploadServic
     };
     // end craft type/subtype
 
-
-    // Image Upload - See Example: https://codepen.io/Mestika/pen/EKWoZz
-    $scope.$watch('file', function (newfile, oldfile) {
-        if (angular.equals(newfile, oldfile)) {
-            return;
-        }
-
-        uploadService.upload(newfile).then(function (res) {
-            // DO SOMETHING WITH THE RESULT!
-            console.log("result", res);
-        })
-    });
-
-}])
-    .service("uploadService", function ($http, $q) {
-
-        return ({
-            upload: upload
+    // Start File Upload
+    $scope.uploadPic = function (file) {
+        file.upload = Upload.upload({
+            url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+            data: { username: $scope.username, file: file },
         });
 
-        function upload(file) {
-            var upl = $http({
-                method: 'POST',
-                url: 'http://jsonplaceholder.typicode.com/posts', // /api/upload
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
-                data: {
-                    upload: file
-                },
-                transformRequest: function (data, headersGetter) {
-                    var formData = new FormData();
-                    angular.forEach(data, function (value, key) {
-                        formData.append(key, value);
-                    });
-
-                    var headers = headersGetter();
-                    delete headers['Content-Type'];
-
-                    return formData;
-                }
+        file.upload.then(function (response) {
+            $timeout(function () {
+                file.result = response.data;
             });
-            return upl.then(handleSuccess, handleError);
-
-        } // End upload function
-
-        // ---
-        // PRIVATE METHODS.
-        // ---
-
-        function handleError(response, data) {
-            if (!angular.isObject(response.data) || !response.data.message) {
-                return ($q.reject("An unknown error occurred."));
-            }
-
-            return ($q.reject(response.data.message));
-        }
-
-        function handleSuccess(response) {
-            return (response);
-        }
-
-    })
-    .directive("fileinput", [function () {
-        return {
-            scope: {
-                fileinput: "=",
-                filepreview: "="
-            },
-            link: function (scope, element, attributes) {
-                element.bind("change", function (changeEvent) {
-                    scope.fileinput = changeEvent.target.files[0];
-                    var reader = new FileReader();
-                    reader.onload = function (loadEvent) {
-                        scope.$apply(function () {
-                            scope.filepreview = loadEvent.target.result;
-                        });
-                    }
-                    reader.readAsDataURL(scope.fileinput);
-                });
-            }
-        }
-    // End Image Upload - See Example: https://codepen.io/Mestika/pen/EKWoZz
-
+        }, function (response) {
+            if (response.status > 0)
+                $scope.errorMsg = response.status + ': ' + response.data;
+        }, function (evt) {
+            // Math.min is to fix IE which reports 200% sometimes
+            file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+        });
+    }
+     
 
 }]);

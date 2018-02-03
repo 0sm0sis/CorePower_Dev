@@ -7,17 +7,27 @@
     <div class="backgroundMatting">
         <div class="well">
 
-            @* See CodePen Example - https://codepen.io/Mestika/pen/EKWoZz *@
-            <div ng-app="fileUpload" class="container">
-                <div class="row" ng-controller="upload">
-                    <div class="col-md-6">
-                        <input type="file" fileinput="file" filepreview="filepreview" />
-                    </div>
-                    <div class="col-md-6">
-                        <img ng-src="{{filepreview}}" class="img-responsive" ng-show="filepreview" />
-                    </div>
-                </div>
-            </div>
+            @*<br>Photo:
+            <input type="file" ngf-select ng-model="picFile" name="file"
+                   accept="image/*" ngf-max-size="4MB" required
+                   ngf-model-invalid="errorFile">
+            <i ng-show="myForm.file.$error.required">*required</i><br>
+            <i ng-show="myForm.file.$error.maxSize">
+                File too large
+                {{errorFile.size / 1000000|number:1}}MB: max 2M
+            </i>
+            <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+            <br>
+            <button ng-disabled="!myForm.$valid"
+                    ng-click="uploadPic(picFile)">
+                Submit
+            </button>
+            <span class="progress" ng-show="picFile.progress >= 0">
+                <div style="width:{{picFile.progress}}%"
+                     ng-bind="picFile.progress + '%'"></div>
+            </span>
+            <span ng-show="picFile.result">Upload Successful</span>
+            <span class="err" ng-show="errorMsg">{{errorMsg}}</span>*@
 
             <div class="form-group has-float-label">
                 <select class="form-control" ng-model="selectedCraftType" ng-options="type as type.name for type in craftTypeList" ng-change="selectCraftSubtypeList()" id="sel1" "></select>
