@@ -15,7 +15,7 @@
 
     // Just hard coding with an array of strings for demo purposes
     // This will likely be an array of objects once the database is running
-    $scope.craftObjectList = [{ name: "Fixed Wing", imgSrc: "../images/fixedwing.PNG" }, { name: "Rotocraft", imgSrc: "../images / rotocraft.PNG" }, { name: "UAV", imgSrc: "../images/UAV.PNG"}];
+    $scope.craftTypeList = [{ name: "Fixed Wing", imgSrc: "../images/fixedwing.PNG" }, { name: "Rotocraft", imgSrc: "../images / rotocraft.PNG" }, { name: "UAV", imgSrc: "../images/UAV.PNG"}];
     $scope.systemRequirementsList = ["Generation", "Distribution", "In Seat Power", "Other"];
     $scope.missionSystemList = ["Special Mission Systems", "VVIP/Cabin Power", "IVHM/CBM", "Hybrid-Electric Propulsion", "All-electric Propulsion", "Untilty Managment", "Active Load Shedding", "Energy Recovery", "Battery Managment",];
     $scope.fixedWingSubtypeList = ["GA", "Turbo Prop", "VLJ", "Light Bus Jet", "Medium Business Jet", "Regional Transpot", "Commerical Transport"];
@@ -28,7 +28,8 @@
     $scope.selectedCraftType = {};
     // a function will populate this list with the appropriate subtype
     // after an aircraft type is selected. Options in subtype list
-    // populate picklists in html
+    // populate
+    // picklists in html
     $scope.craftSubtypeList = [];
     $scope.selectCraftSubtypeList = function () {
         if ($scope.selectedCraftType.name == "Fixed Wing") {

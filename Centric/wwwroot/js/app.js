@@ -3100,7 +3100,7 @@ corePower.controller("containersController", ['$scope', function ($scope) {
 
     // Just hard coding with an array of strings for demo purposes
     // This will likely be an array of objects once the database is running
-    $scope.craftObjectList = [{ name: "Fixed Wing", imgSrc: "../images/fixedwing.PNG" }, { name: "Rotocraft", imgSrc: "../images / rotocraft.PNG" }, { name: "UAV", imgSrc: "../images/UAV.PNG"}];
+    $scope.craftTypeList = [{ name: "Fixed Wing", imgSrc: "../images/fixedwing.PNG" }, { name: "Rotocraft", imgSrc: "../images / rotocraft.PNG" }, { name: "UAV", imgSrc: "../images/UAV.PNG"}];
     $scope.systemRequirementsList = ["Generation", "Distribution", "In Seat Power", "Other"];
     $scope.missionSystemList = ["Special Mission Systems", "VVIP/Cabin Power", "IVHM/CBM", "Hybrid-Electric Propulsion", "All-electric Propulsion", "Untilty Managment", "Active Load Shedding", "Energy Recovery", "Battery Managment",];
     $scope.fixedWingSubtypeList = ["GA", "Turbo Prop", "VLJ", "Light Bus Jet", "Medium Business Jet", "Regional Transpot", "Commerical Transport"];
@@ -3113,7 +3113,8 @@ corePower.controller("containersController", ['$scope', function ($scope) {
     $scope.selectedCraftType = {};
     // a function will populate this list with the appropriate subtype
     // after an aircraft type is selected. Options in subtype list
-    // populate picklists in html
+    // populate
+    // picklists in html
     $scope.craftSubtypeList = [];
     $scope.selectCraftSubtypeList = function () {
         if ($scope.selectedCraftType.name == "Fixed Wing") {
@@ -3131,4 +3132,208 @@ corePower.controller("containersController", ['$scope', function ($scope) {
 
 corePower.controller("dashboardController", ['$scope',function ($scope) {
     $scope.demoText = "Here's some text!";
+}]);
+
+corePower.controller("newComponentController", ['$scope', '$http', 'uploadService', function ($scope, $http, uploadService) {
+    
+    $scope.newPart = {
+        ID: 0,
+        partNum: 1448,
+        compatible: {
+            craftTypes: [],
+            craftSubtypes: [],
+            missionSystems: [],
+            powerSystems: []
+        }
+    };
+
+
+    // start craft type/subtype
+    $scope.craftTypeList = [{ name: "Fixed Wing", imgSrc: "../images/fixedwing.PNG" }, { name: "Rotocraft", imgSrc: "../images / rotocraft.PNG" }, { name: "UAV", imgSrc: "../images/UAV.PNG" }];
+    $scope.systemRequirementsList = ["Generation", "Distribution", "In Seat Power", "Other"];
+    $scope.missionSystemList = ["Special Mission Systems", "VVIP/Cabin Power", "IVHM/CBM", "Hybrid-Electric Propulsion", "All-electric Propulsion", "Untilty Managment", "Active Load Shedding", "Energy Recovery", "Battery Managment",];
+    $scope.fixedWingSubtypeList = ["GA", "Turbo Prop", "VLJ", "Light Bus Jet", "Medium Business Jet", "Regional Transpot", "Commerical Transport"];
+    $scope.rotocraftSubtypeList = ["Part 27 Single", "Part 27 Light Twin", "Part 29 Medium", "Part 29 Medium Heavy", "Part 29 Heavy"];
+    $scope.uavSubtypeList = ["Multi-rotor Hybird Electric", "All Electric Mulit Rotor", "eVtol to Fixed Wing"]
+    $scope.powerSystemList = ["AC", "DC"];
+
+
+    $scope.selectedCraftType = {};
+
+    $scope.craftSubtypeList = [];
+    $scope.selectCraftSubtypeList = function () {
+        if ($scope.selectedCraftType.name == "Fixed Wing") {
+            $scope.craftSubtypeList = $scope.fixedWingSubtypeList;
+        }
+        else if ($scope.selectedCraftType.name == "Rotocraft") {
+            $scope.craftSubtypeList = $scope.rotocraftSubtypeList;
+        }
+        else if ($scope.selectedCraftType.name == "UAV") {
+            $scope.craftSubtypeList = $scope.uavSubtypeList;
+        }
+
+    }
+
+    // compatability helper funcions
+    $scope.toggleCraftTypeCompatibilities = function (craftType) {
+
+        var idx = $scope.newPart.compatible.craftTypes.indexOf(craftType);
+        // Is currently selected, take it off list
+        if (idx > -1) {
+            $scope.$scope.newPart.compatible.craftTypes.splice(idx, 1);
+        }
+        // Is newly selected
+        else {
+            $scope.$scope.newPart.compatible.craftTypes.push(craftType);
+        }
+    }
+
+    $scope.toggleSubtypeCompatibilities = function (subtype) {
+        var idx = $scope.newPart.compatible.craftSubtypes.indexOf(subtype);
+        if (idx > -1) {
+            $scope.$scope.newPart.compatible.craftSubtypes.splice(idx, 1);
+        }
+        else {
+            $scope.$scope.newPart.compatible.craftSubtypes.push(subtype);
+        }
+    };
+
+    $scope.toggleMissionSystemCompatibilities = function (missionSystem) {
+        var idx = $scope.newPart.compatible.missionSystems.indexOf(missionSystem);
+        if (idx > -1) {
+            $scope.$scope.newPart.compatible.missionSystems.splice(idx, 1);
+        }
+        else {
+            $scope.$scope.newPart.compatible.missionSystems.push(missionSystem);
+        }
+    };
+
+    $scope.togglePowerSystemCompatibilities = function (powerSystem) {
+        $scope.newPart.compatible.powerSystems.push(powerSystem);
+        var idx = $scope.newPart.compatible.powerSystems.indexOf(powerSystem);
+        if (idx > -1) {
+            $scope.$scope.newPart.compatible.powerSystems.splice(idx, 1);
+        }
+        else {
+            $scope.$scope.newPart.compatible.powerSystems.push(powerSystem);
+        }
+    };
+
+    // clear out selections
+    $scope.clearAll = function () {
+        $scope.newPart = {
+            ID: 0,
+            partNum: 1448,
+            compatible: {
+                craftTypes: [],
+                craftSubtypes: [],
+                missionSystems: [],
+                powerSystems: []
+            }
+        }
+    };
+
+    $scope.clearCraftTypeCompatibilities = function (craftType) {
+        $scope.newPart.compatible.craftTypes = null;
+        $scope.newPart.compatible.craftTypes = [];
+    };
+    $scope.clearSubtypeCompatibilities = function (subtype) {
+        $scope.newPart.compatible.craftSubtypes = null;
+        $scope.newPart.compatible.craftSubtypes = [];
+    };
+    $scope.clearMissionSystemsCompatibilities = function (missionSystems) {
+        $scope.newPart.compatible.missionSystems = null;
+        $scope.newPart.compatible.missionSystems = [];
+    };
+    $scope.clearPowerSystemssCompatibilities = function (powerSystems) {
+        $scope.newPart.compatible.powerSystems = null;
+        $scope.newPart.compatible.powerSystems = [];
+    };
+    // end craft type/subtype
+
+
+    // Image Upload - See Example: https://codepen.io/Mestika/pen/EKWoZz
+    $scope.$watch('file', function (newfile, oldfile) {
+        if (angular.equals(newfile, oldfile)) {
+            return;
+        }
+
+        uploadService.upload(newfile).then(function (res) {
+            // DO SOMETHING WITH THE RESULT!
+            console.log("result", res);
+        })
+    });
+
+}])
+    .service("uploadService", function ($http, $q) {
+
+        return ({
+            upload: upload
+        });
+
+        function upload(file) {
+            var upl = $http({
+                method: 'POST',
+                url: 'http://jsonplaceholder.typicode.com/posts', // /api/upload
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: {
+                    upload: file
+                },
+                transformRequest: function (data, headersGetter) {
+                    var formData = new FormData();
+                    angular.forEach(data, function (value, key) {
+                        formData.append(key, value);
+                    });
+
+                    var headers = headersGetter();
+                    delete headers['Content-Type'];
+
+                    return formData;
+                }
+            });
+            return upl.then(handleSuccess, handleError);
+
+        } // End upload function
+
+        // ---
+        // PRIVATE METHODS.
+        // ---
+
+        function handleError(response, data) {
+            if (!angular.isObject(response.data) || !response.data.message) {
+                return ($q.reject("An unknown error occurred."));
+            }
+
+            return ($q.reject(response.data.message));
+        }
+
+        function handleSuccess(response) {
+            return (response);
+        }
+
+    })
+    .directive("fileinput", [function () {
+        return {
+            scope: {
+                fileinput: "=",
+                filepreview: "="
+            },
+            link: function (scope, element, attributes) {
+                element.bind("change", function (changeEvent) {
+                    scope.fileinput = changeEvent.target.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function (loadEvent) {
+                        scope.$apply(function () {
+                            scope.filepreview = loadEvent.target.result;
+                        });
+                    }
+                    reader.readAsDataURL(scope.fileinput);
+                });
+            }
+        }
+    // End Image Upload - See Example: https://codepen.io/Mestika/pen/EKWoZz
+
+
 }]);

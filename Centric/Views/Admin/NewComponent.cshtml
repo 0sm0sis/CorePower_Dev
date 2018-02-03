@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Core Power Planner";
+}
+
+
+<div ng-controller="newComponentController" class="col-sm-12" id="contentHolder">
+    <div class="backgroundMatting">
+        <div class="well">
+
+            @* See CodePen Example - https://codepen.io/Mestika/pen/EKWoZz *@
+            <div ng-app="fileUpload" class="container">
+                <div class="row" ng-controller="upload">
+                    <div class="col-md-6">
+                        <input type="file" fileinput="file" filepreview="filepreview" />
+                    </div>
+                    <div class="col-md-6">
+                        <img ng-src="{{filepreview}}" class="img-responsive" ng-show="filepreview" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group has-float-label">
+                <select class="form-control" ng-model="selectedCraftType" ng-options="type as type.name for type in craftTypeList" ng-change="selectCraftSubtypeList()" id="sel1" "></select>
+                <label>Aircraft Type</label>
+            </div>
+        </div>
+    </div>
+</div>
+

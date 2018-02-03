@@ -11,48 +11,49 @@
             <div class="form-group has-float-label">
                 @* ng-model binds links this to the corresponding $scope property *@
                 @* The ng-options may look weird since it normally is dealing with objects
-                    it looks clear when type as type.name for type in list which will track all object data
-                    so that it can be passed along, but only displays type.name in the picklist
+            it looks clear when type as type.name for type in list which will track all object data
+            so that it can be passed along, but only displays type.name in the picklist
                 *@
-                <select class="form-control" ng-model="selectedCraftType" ng-options="type as type.name for type in craftObjectList" ng-change="selectCraftSubtypeList()" id="sel1" ">
+                <select class="form-control" ng-model="selectedCraftType" ng-options="type as type.name for type in craftTypeList" ng-change="selectCraftSubtypeList()" id="sel1" ">
                     @*<option value="" disabled selected>Choose a Plane</option>
-                        <option value="fixed wing">Fixed Wing</option>
-                        <option value="rotocraft">Rotocraft</option>
-                        <option value="UAV">UAV</option>*@
+                <option value="fixed wing">Fixed Wing</option>
+                <option value="rotocraft">Rotocraft</option>
+                <option value="UAV">UAV</option>*@
                 </select>
-                <div class="col-lg-12">
-                    <p>
-                        {{craftSubtypeList}}
-                    </p>
-                </div>
                 <label>Aircraft Type</label>
             </div>
-            @*<div class="has-float-label">
-                <select class="form-control" id="sel2">
-                    <option value="" disabled selected>Choose System Requirements</option>
-                    <option>Generation</option>
-                    <option>Distribution</option>
-                    <option>In Seat Power</option>
-                    <option>Other</option>
-                </select>
-                <label>System Requirments</label>
+            <div class="col-lg-12">
+                <p>
+                    {{craftSubtypeList}}
+                </p>
             </div>
-            <br />
-            <div class="has-float-label">
-                <select class="form-control" id="sel3">
-                    <option value="" disabled selected>Special Purpose</option>
-                    <option>Special Mission Systems</option>
-                    <option>VVIP/Cabin Power</option>
-                    <option>IVHM/CBM</option>
-                    <option>Hybrid-Electric Propulsion</option>
-                    <option>All-electric Propulsion</option>
-                    <option>Untilty Managment</option>
-                    <option>Active Load Shedding</option>
-                    <option>Energy Recovery</option>
-                    <option>Battery Managment</option>
-                </select>
-                <label>Special Purpose</label>
-            </div>*@
+
+            @*<div class="has-float-label">
+            <select class="form-control" id="sel2">
+                <option value="" disabled selected>Choose System Requirements</option>
+                <option>Generation</option>
+                <option>Distribution</option>
+                <option>In Seat Power</option>
+                <option>Other</option>
+            </select>
+            <label>System Requirments</label>
+        </div>
+        <br />
+        <div class="has-float-label">
+            <select class="form-control" id="sel3">
+                <option value="" disabled selected>Special Purpose</option>
+                <option>Special Mission Systems</option>
+                <option>VVIP/Cabin Power</option>
+                <option>IVHM/CBM</option>
+                <option>Hybrid-Electric Propulsion</option>
+                <option>All-electric Propulsion</option>
+                <option>Untilty Managment</option>
+                <option>Active Load Shedding</option>
+                <option>Energy Recovery</option>
+                <option>Battery Managment</option>
+            </select>
+            <label>Special Purpose</label>
+        </div>*@
 
             <div style="padding-top:15px; width:100%" class="btn-group-vertical">
                 <button class="btn btn-primary" href="@Url.Action("Classic", "Forms")">Save My Plane</button>
@@ -63,7 +64,7 @@
         </div>
         <div id="middle" class="col-xs-8 h-100" style="border:medium; border-color:red;height: 700px;">
             @* ng-src takes image associated with craft type object to dynamically display images
-                These objects should reflect the Json object returned from C# backend so that data
+                These objsects should reflect the Json object returned from C# backend so that data
                 from db can be seamlessly integrated with front end*@
             <img id="image" ng-src="{{selectedCraftType.imgSrc}}" style="display: block; margin: 0 auto;">
         </div>
