@@ -28,7 +28,7 @@
 })();
 
 
-var corePower = angular.module('corePower', []);
+var corePower = angular.module('corePower', ['ngFileUpload']);
 
 (function() {
     'use strict';
@@ -3083,7 +3083,7 @@ var corePower = angular.module('corePower', []);
     }
 
 })();
-corePower.controller("containersController", ['$scope', function ($scope) {
+corePower.controller('containersController', ['$scope', function ($scope) {
     // $scope is probably the single most important variable
     // any object or function attached to $scope can be surfaced
     // directly in the html
@@ -3134,8 +3134,8 @@ corePower.controller("dashboardController", ['$scope',function ($scope) {
     $scope.demoText = "Here's some text!";
 }]);
 
-corePower.controller("newComponentController", ['$scope', function ($scope) {
-    
+corePower.controller('newComponentController', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
+
     $scope.newPart = {
         ID: 0,
         partNum: 1448,
@@ -3251,7 +3251,25 @@ corePower.controller("newComponentController", ['$scope', function ($scope) {
     };
     // end craft type/subtype
 
+    // Start File Upload
+    $scope.uploadPic = function (file) {
+        file.upload = Upload.upload({
+            url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+            data: { username: $scope.username, file: file },
+        });
 
-
+        file.upload.then(function (response) {
+            $timeout(function () {
+                file.result = response.data;
+            });
+        }, function (response) {
+            if (response.status > 0)
+                $scope.errorMsg = response.status + ': ' + response.data;
+        }, function (evt) {
+            // Math.min is to fix IE which reports 200% sometimes
+            file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+        });
+    }
+     
 
 }]);
