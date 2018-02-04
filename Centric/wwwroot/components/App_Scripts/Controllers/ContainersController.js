@@ -1,4 +1,4 @@
-﻿corePower.controller("containersController", ['$scope', function ($scope) {
+﻿corePower.controller('containersController', ['$scope', function ($scope) {
     // $scope is probably the single most important variable
     // any object or function attached to $scope can be surfaced
     // directly in the html

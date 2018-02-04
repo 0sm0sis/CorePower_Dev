@@ -22,4 +22,8 @@
     <None Include="wwwroot\lib\angular\app.js" />
     <None Include="wwwroot\lib\angular\Controllers\DashboardController.js" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\angular\NewFolder1\" />
+    <Folder Include="wwwroot\lib\angular\NewFolder\" />
+  </ItemGroup>
 </Project>
