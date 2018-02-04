@@ -7,7 +7,7 @@
     <div class="backgroundMatting">
         <div class="well">
 
-            @*<br>Photo:
+            <br>Photo:
             <input type="file" ngf-select ng-model="picFile" name="file"
                    accept="image/*" ngf-max-size="4MB" required
                    ngf-model-invalid="errorFile">
@@ -27,7 +27,7 @@
                      ng-bind="picFile.progress + '%'"></div>
             </span>
             <span ng-show="picFile.result">Upload Successful</span>
-            <span class="err" ng-show="errorMsg">{{errorMsg}}</span>*@
+            <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
 
             <div class="form-group has-float-label">
                 <select class="form-control" ng-model="selectedCraftType" ng-options="type as type.name for type in craftTypeList" ng-change="selectCraftSubtypeList()" id="sel1" "></select>
