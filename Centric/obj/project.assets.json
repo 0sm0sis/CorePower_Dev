@@ -12578,7 +12578,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joshc\\.nuget\\packages\\": {},
+    "C:\\Users\\Cler\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
@@ -12588,18 +12588,18 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\joshc\\Source\\Repos\\CorePower_Dev\\Centric\\Centric.csproj",
+      "projectUniqueName": "C:\\Users\\Cler\\Desktop\\CorePower_Dev\\Centric\\Centric.csproj",
       "projectName": "Centric",
-      "projectPath": "C:\\Users\\joshc\\Source\\Repos\\CorePower_Dev\\Centric\\Centric.csproj",
-      "packagesPath": "C:\\Users\\joshc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joshc\\Source\\Repos\\CorePower_Dev\\Centric\\obj\\",
+      "projectPath": "C:\\Users\\Cler\\Desktop\\CorePower_Dev\\Centric\\Centric.csproj",
+      "packagesPath": "C:\\Users\\Cler\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Cler\\Desktop\\CorePower_Dev\\Centric\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\joshc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Cler\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],

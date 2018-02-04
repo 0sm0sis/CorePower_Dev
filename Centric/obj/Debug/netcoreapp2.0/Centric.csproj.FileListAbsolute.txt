@@ -52,3 +52,14 @@ C:\Users\joshc\Source\Repos\CorePower_Dev\Centric\obj\Debug\netcoreapp2.0\Centri
 C:\Users\joshc\Source\Repos\CorePower_Dev\Centric\obj\Debug\netcoreapp2.0\Centric.AssemblyInfo.cs
 C:\Users\joshc\Source\Repos\CorePower_Dev\Centric\obj\Debug\netcoreapp2.0\Centric.dll
 C:\Users\joshc\Source\Repos\CorePower_Dev\Centric\obj\Debug\netcoreapp2.0\Centric.pdb
+C:\Users\Cler\Desktop\CorePower_Dev\Centric\bin\Debug\netcoreapp2.0\Centric.deps.json
+C:\Users\Cler\Desktop\CorePower_Dev\Centric\bin\Debug\netcoreapp2.0\Centric.runtimeconfig.json
+C:\Users\Cler\Desktop\CorePower_Dev\Centric\bin\Debug\netcoreapp2.0\Centric.runtimeconfig.dev.json
+C:\Users\Cler\Desktop\CorePower_Dev\Centric\bin\Debug\netcoreapp2.0\Centric.dll
+C:\Users\Cler\Desktop\CorePower_Dev\Centric\bin\Debug\netcoreapp2.0\Centric.pdb
+C:\Users\Cler\Desktop\CorePower_Dev\Centric\obj\Debug\netcoreapp2.0\Centric.csprojResolveAssemblyReference.cache
+C:\Users\Cler\Desktop\CorePower_Dev\Centric\obj\Debug\netcoreapp2.0\Centric.csproj.CoreCompileInputs.cache
+C:\Users\Cler\Desktop\CorePower_Dev\Centric\obj\Debug\netcoreapp2.0\Centric.AssemblyInfoInputs.cache
+C:\Users\Cler\Desktop\CorePower_Dev\Centric\obj\Debug\netcoreapp2.0\Centric.AssemblyInfo.cs
+C:\Users\Cler\Desktop\CorePower_Dev\Centric\obj\Debug\netcoreapp2.0\Centric.dll
+C:\Users\Cler\Desktop\CorePower_Dev\Centric\obj\Debug\netcoreapp2.0\Centric.pdb
